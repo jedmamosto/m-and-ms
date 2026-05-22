@@ -66,7 +66,7 @@ export async function POST(request: Request) {
         };
 
         // Match custom fields by field key or display name to build payload
-        const customFieldsPayload: { id: string; value: any }[] = [];
+        const customFieldsPayload: { id: string; value: string | number | string[] }[] = [];
         for (const [key, value] of Object.entries(fieldMapping)) {
           if (value === undefined || value === null || value === "") continue;
 

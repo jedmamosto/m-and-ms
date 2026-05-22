@@ -168,13 +168,9 @@ export default function Quiz() {
         }),
       });
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const result = await response.json();
 
-      // Graceful error logic as instructed (redirect anyway or show friendly notice)
-      // If the webhook fails because of no env variables, the server will return success: false with a warning.
-      // But we will show a seamless flow. If API explicitly tells us to display a friendly message or redirect,
-      // we proceed to the recommendation page with disqualification status.
-      // This ensures we show the result to the user.
       router.push(
         `/recommendation?score=${calculatedScore}&disqualified=${isDisqualified ? "true" : "false"}&name=${encodeURIComponent(
           formData.contact.name
@@ -199,19 +195,19 @@ export default function Quiz() {
   const progressPercent = Math.round((step / 5) * 100);
 
   return (
-    <div className="min-h-screen bg-bg-secondary text-text-primary flex flex-col items-center justify-center px-4 py-12 selection:bg-accent/20 selection:text-accent">
-      <div className="w-full max-w-xl bg-bg-primary border border-border-custom rounded-xl shadow-xl overflow-hidden fade-in">
+    <div className="min-h-screen bg-surface text-on-surface flex flex-col items-center justify-center px-4 py-12 selection:bg-primary-container selection:text-on-primary-container noise-bg">
+      <div className="w-full max-w-xl bg-surface-container-lowest border-3 border-on-surface rounded-xl shadow-[6px_6px_0px_0px_var(--color-secondary)] overflow-hidden fade-in">
         {/* Progress Bar & Header */}
-        <div className="bg-bg-secondary px-8 py-6 border-b border-border-custom">
+        <div className="bg-surface-container px-8 py-6 border-b-3 border-on-surface">
           <div className="flex justify-between items-center mb-4">
-            <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+            <span className="font-label-bold text-label-bold uppercase tracking-wider text-primary">
               Step {step} of 5
             </span>
-            <span className="text-xs font-bold text-text-secondary">{progressPercent}% Completed</span>
+            <span className="font-label-bold text-label-bold text-on-surface-variant">{progressPercent}% Completed</span>
           </div>
-          <div className="w-full h-2 bg-border-custom rounded-full overflow-hidden">
+          <div className="w-full h-4 bg-surface-container-high border-2 border-on-surface rounded-full overflow-hidden">
             <div
-              className="h-full bg-accent transition-all duration-300 rounded-full"
+              className="h-full bg-primary border-r-2 border-on-surface transition-all duration-300 rounded-full"
               style={{ width: `${progressPercent}%` }}
             />
           </div>
@@ -223,14 +219,14 @@ export default function Quiz() {
             {/* STEP 1: CONTACT INFO */}
             {step === 1 && (
               <div className="fade-in">
-                <h2 className="text-2xl font-bold tracking-tight mb-2">Let&apos;s start with your contact details</h2>
-                <p className="text-text-secondary text-sm mb-8">
+                <h2 className="font-headline-md text-2xl text-on-surface tracking-tight mb-2">Let&apos;s start with your contact details</h2>
+                <p className="font-body-md text-on-surface-variant text-sm mb-8">
                   We need this to associate your diagnostic score and build your custom roadmap.
                 </p>
 
                 <div className="space-y-5">
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="name-input" className="text-sm font-semibold text-text-secondary">
+                    <label htmlFor="name-input" className="font-label-bold text-label-bold text-on-surface-variant">
                       Full Name
                     </label>
                     <input
@@ -247,11 +243,11 @@ export default function Quiz() {
                         }))
                       }
                     />
-                    {errors.name && <p className="text-xs font-semibold text-red-500 mt-1">{errors.name}</p>}
+                    {errors.name && <p className="font-label-bold text-xs text-error mt-1">{errors.name}</p>}
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="email-input" className="text-sm font-semibold text-text-secondary">
+                    <label htmlFor="email-input" className="font-label-bold text-label-bold text-on-surface-variant">
                       Email Address
                     </label>
                     <input
@@ -269,11 +265,11 @@ export default function Quiz() {
                         }))
                       }
                     />
-                    {errors.email && <p className="text-xs font-semibold text-red-500 mt-1">{errors.email}</p>}
+                    {errors.email && <p className="font-label-bold text-xs text-error mt-1">{errors.email}</p>}
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="phone-input" className="text-sm font-semibold text-text-secondary">
+                    <label htmlFor="phone-input" className="font-label-bold text-label-bold text-on-surface-variant">
                       Phone Number
                     </label>
                     <input
@@ -291,7 +287,7 @@ export default function Quiz() {
                         }))
                       }
                     />
-                    {errors.phone && <p className="text-xs font-semibold text-red-500 mt-1">{errors.phone}</p>}
+                    {errors.phone && <p className="font-label-bold text-xs text-error mt-1">{errors.phone}</p>}
                   </div>
                 </div>
               </div>
@@ -300,8 +296,8 @@ export default function Quiz() {
             {/* STEP 2: PAIN POINTS */}
             {step === 2 && (
               <div className="fade-in">
-                <h2 className="text-2xl font-bold tracking-tight mb-2">What is holding your business back?</h2>
-                <p className="text-text-secondary text-sm mb-8">
+                <h2 className="font-headline-md text-2xl text-on-surface tracking-tight mb-2">What is holding your business back?</h2>
+                <p className="font-body-md text-on-surface-variant text-sm mb-8">
                   Select the main challenges you are currently facing (select all that apply).
                 </p>
 
@@ -313,20 +309,20 @@ export default function Quiz() {
                         key={option.id}
                         type="button"
                         onClick={() => handlePainPointToggle(option.label)}
-                        className={`w-full text-left px-5 py-4 border rounded-lg font-medium flex items-center justify-between transition-all duration-200 min-h-[48px] ${
+                        className={`w-full text-left px-5 py-4 border-3 rounded-lg font-headline-md text-base flex items-center justify-between transition-all duration-200 min-h-[48px] ${
                           isSelected
-                            ? "border-accent bg-accent/5 text-accent shadow-sm"
-                            : "border-border-custom bg-bg-secondary text-text-secondary hover:border-border-hover-custom hover:bg-bg-elevated"
+                            ? "border-on-surface bg-tertiary-fixed text-on-tertiary-fixed shadow-[3px_3px_0px_0px_var(--color-secondary)] translate-y-[-2px] translate-x-[-2px]"
+                            : "border-on-surface bg-surface text-on-surface hover:bg-surface-container"
                         }`}
                       >
                         <span>{option.label}</span>
                         <div
-                          className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${
-                            isSelected ? "border-accent bg-accent text-white" : "border-text-muted"
+                          className={`w-6 h-6 rounded border-3 flex items-center justify-center transition-colors ${
+                            isSelected ? "border-on-surface bg-primary text-white" : "border-on-surface bg-surface"
                           }`}
                         >
                           {isSelected && (
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
                               <path
                                 fillRule="evenodd"
                                 d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
@@ -338,7 +334,7 @@ export default function Quiz() {
                       </button>
                     );
                   })}
-                  {errors.painPoints && <p className="text-xs font-semibold text-red-500 mt-1">{errors.painPoints}</p>}
+                  {errors.painPoints && <p className="font-label-bold text-xs text-error mt-1">{errors.painPoints}</p>}
                 </div>
               </div>
             )}
@@ -346,13 +342,13 @@ export default function Quiz() {
             {/* STEP 3: COMMITMENT SCALE */}
             {step === 3 && (
               <div className="fade-in">
-                <h2 className="text-2xl font-bold tracking-tight mb-2">How committed are you to fixing these gaps?</h2>
-                <p className="text-text-secondary text-sm mb-8">
+                <h2 className="font-headline-md text-2xl text-on-surface tracking-tight mb-2">How committed are you to fixing these gaps?</h2>
+                <p className="font-body-md text-on-surface-variant text-sm mb-8">
                   Rate your commitment level from 1 (Exploring) to 10 (Critical immediate priority).
                 </p>
 
                 <div className="py-6 flex flex-col items-center">
-                  <div className="text-5xl font-extrabold text-accent mb-6 animate-pulse">
+                  <div className="font-display-lg text-5xl font-extrabold text-primary mb-6 animate-pulse">
                     {formData.commitment}
                   </div>
 
@@ -368,10 +364,10 @@ export default function Quiz() {
                             commitment: val,
                           }))
                         }
-                        className={`aspect-square rounded-full flex items-center justify-center font-bold text-base transition-all duration-200 border-2 min-h-[48px] min-w-[48px] ${
+                        className={`aspect-square rounded-full flex items-center justify-center font-black text-base transition-all duration-200 border-3 min-h-[48px] min-w-[48px] ${
                           formData.commitment === val
-                            ? "bg-accent border-accent text-white shadow-md scale-110"
-                            : "bg-bg-secondary border-border-custom text-text-secondary hover:border-border-hover-custom"
+                            ? "bg-primary border-on-surface text-white shadow-[3px_3px_0px_0px_var(--color-secondary)] scale-110"
+                            : "bg-surface border-on-surface text-on-surface hover:bg-surface-container"
                         }`}
                       >
                         {val}
@@ -379,7 +375,7 @@ export default function Quiz() {
                     ))}
                   </div>
 
-                  <div className="flex justify-between w-full max-w-md mt-6 text-xs text-text-muted font-bold px-2">
+                  <div className="flex justify-between w-full max-w-md mt-6 font-label-bold text-xs text-on-surface-variant tracking-wider px-2">
                     <span>EXPLORING</span>
                     <span>MODERATE</span>
                     <span>ALL IN</span>
@@ -391,8 +387,8 @@ export default function Quiz() {
             {/* STEP 4: BUDGET RANGE */}
             {step === 4 && (
               <div className="fade-in">
-                <h2 className="text-2xl font-bold tracking-tight mb-2">What is your budget for systems development?</h2>
-                <p className="text-text-secondary text-sm mb-8">
+                <h2 className="font-headline-md text-2xl text-on-surface tracking-tight mb-2">What is your budget for systems development?</h2>
+                <p className="font-body-md text-on-surface-variant text-sm mb-8">
                   Select the budget allocation range planned for custom funnel/CRM integration projects.
                 </p>
 
@@ -409,24 +405,24 @@ export default function Quiz() {
                             budget: option.value,
                           }))
                         }
-                        className={`w-full text-left px-5 py-4 border rounded-lg font-medium flex items-center justify-between transition-all duration-200 min-h-[48px] ${
+                        className={`w-full text-left px-5 py-4 border-3 rounded-lg font-headline-md text-base flex items-center justify-between transition-all duration-200 min-h-[48px] ${
                           isSelected
-                            ? "border-accent bg-accent/5 text-accent shadow-sm"
-                            : "border-border-custom bg-bg-secondary text-text-secondary hover:border-border-hover-custom hover:bg-bg-elevated"
+                            ? "border-on-surface bg-tertiary-fixed text-on-tertiary-fixed shadow-[3px_3px_0px_0px_var(--color-secondary)] translate-y-[-2px] translate-x-[-2px]"
+                            : "border-on-surface bg-surface text-on-surface hover:bg-surface-container"
                         }`}
                       >
                         <span>{option.label}</span>
                         <div
-                          className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${
-                            isSelected ? "border-accent" : "border-text-muted"
+                          className={`w-6 h-6 rounded-full border-3 flex items-center justify-center bg-surface transition-colors ${
+                            isSelected ? "border-on-surface" : "border-on-surface"
                           }`}
                         >
-                          {isSelected && <div className="w-2.5 h-2.5 rounded-full bg-accent" />}
+                          {isSelected && <div className="w-3 h-3 rounded-full bg-primary" />}
                         </div>
                       </button>
                     );
                   })}
-                  {errors.budget && <p className="text-xs font-semibold text-red-500 mt-1">{errors.budget}</p>}
+                  {errors.budget && <p className="font-label-bold text-xs text-error mt-1">{errors.budget}</p>}
                 </div>
               </div>
             )}
@@ -434,8 +430,8 @@ export default function Quiz() {
             {/* STEP 5: TIMELINE */}
             {step === 5 && (
               <div className="fade-in">
-                <h2 className="text-2xl font-bold tracking-tight mb-2">When do you want to kickoff the system?</h2>
-                <p className="text-text-secondary text-sm mb-8">
+                <h2 className="font-headline-md text-2xl text-on-surface tracking-tight mb-2">When do you want to kickoff the system?</h2>
+                <p className="font-body-md text-on-surface-variant text-sm mb-8">
                   Choose the timeline for integrating custom funnels and automations.
                 </p>
 
@@ -452,24 +448,24 @@ export default function Quiz() {
                             timeline: option.value,
                           }))
                         }
-                        className={`w-full text-left px-5 py-4 border rounded-lg font-medium flex items-center justify-between transition-all duration-200 min-h-[48px] ${
+                        className={`w-full text-left px-5 py-4 border-3 rounded-lg font-headline-md text-base flex items-center justify-between transition-all duration-200 min-h-[48px] ${
                           isSelected
-                            ? "border-accent bg-accent/5 text-accent shadow-sm"
-                            : "border-border-custom bg-bg-secondary text-text-secondary hover:border-border-hover-custom hover:bg-bg-elevated"
+                            ? "border-on-surface bg-tertiary-fixed text-on-tertiary-fixed shadow-[3px_3px_0px_0px_var(--color-secondary)] translate-y-[-2px] translate-x-[-2px]"
+                            : "border-on-surface bg-surface text-on-surface hover:bg-surface-container"
                         }`}
                       >
                         <span>{option.label}</span>
                         <div
-                          className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${
-                            isSelected ? "border-accent" : "border-text-muted"
+                          className={`w-6 h-6 rounded-full border-3 flex items-center justify-center bg-surface transition-colors ${
+                            isSelected ? "border-on-surface" : "border-on-surface"
                           }`}
                         >
-                          {isSelected && <div className="w-2.5 h-2.5 rounded-full bg-accent" />}
+                          {isSelected && <div className="w-3 h-3 rounded-full bg-primary" />}
                         </div>
                       </button>
                     );
                   })}
-                  {errors.timeline && <p className="text-xs font-semibold text-red-500 mt-1">{errors.timeline}</p>}
+                  {errors.timeline && <p className="font-label-bold text-xs text-error mt-1">{errors.timeline}</p>}
                 </div>
               </div>
             )}
@@ -477,19 +473,19 @@ export default function Quiz() {
 
           {/* Graceful Submit Error Message */}
           {submitError && (
-            <div className="mt-4 p-4 rounded-lg bg-yellow-50 border border-yellow-200 text-sm text-yellow-800">
+            <div className="mt-4 p-4 rounded-lg bg-error-container border-3 border-on-surface text-sm text-on-error-container font-label-bold shadow-[2px_2px_0px_0px_var(--color-secondary)]">
               {submitError}
             </div>
           )}
 
           {/* Wizard Footer Navigation */}
-          <div className="flex items-center justify-between mt-10 pt-6 border-t border-border-custom gap-4">
+          <div className="flex items-center justify-between mt-10 pt-6 border-t-3 border-on-surface gap-4">
             {step > 1 ? (
               <button
                 type="button"
                 onClick={handleBack}
                 disabled={isSubmitting}
-                className="px-5 py-3 border border-border-custom text-text-secondary hover:border-border-hover-custom font-semibold rounded-lg bg-bg-secondary min-h-[48px] transition-colors disabled:opacity-50"
+                className="px-5 py-3 border-3 border-on-surface text-on-surface hover:bg-surface-container font-button-text text-button-text rounded bg-surface min-h-[48px] transition-all disabled:opacity-50"
               >
                 Back
               </button>
@@ -501,7 +497,7 @@ export default function Quiz() {
               <button
                 type="button"
                 onClick={handleNext}
-                className="px-6 py-3 bg-accent text-white hover:bg-accent-hover font-semibold rounded-lg min-h-[48px] transition-all flex items-center gap-1 shadow-sm hover:shadow"
+                className="px-6 py-3 bg-primary text-on-primary hover:bg-primary-container font-button-text text-button-text border-3 border-on-surface rounded min-h-[48px] transition-all flex items-center gap-1 shadow-[3px_3px_0px_0px_var(--color-secondary)] hover:translate-y-[3px] hover:translate-x-[3px] hover:shadow-none"
               >
                 Continue
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
@@ -517,7 +513,7 @@ export default function Quiz() {
                 type="button"
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="px-8 py-3 bg-accent text-white hover:bg-accent-hover font-bold rounded-lg min-h-[48px] transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg disabled:opacity-50 w-full sm:w-auto"
+                className="px-8 py-3 bg-primary text-on-primary hover:bg-primary-container font-button-text text-button-text border-3 border-on-surface rounded min-h-[48px] transition-all flex items-center justify-center gap-2 shadow-[4px_4px_0px_0px_var(--color-secondary)] hover:translate-y-[4px] hover:translate-x-[4px] hover:shadow-none disabled:opacity-50 w-full sm:w-auto"
               >
                 {isSubmitting ? (
                   <>

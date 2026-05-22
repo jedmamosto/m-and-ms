@@ -15,7 +15,7 @@ This project is a premium Next.js conversion funnel and diagnostic quiz applicat
   - `/app/quiz` - Multi-step diagnostic survey page
   - `/app/recommendation` - Quiz scoring recommendation router
   - `/app/book` - Dynamic GoHighLevel calendar pre-fill booking portal
-  - `/app/globals.css` - CSS styles and Tailwind v4 mapping for Clean Light Theme
+  - `/app/globals.css` - CSS styles and Tailwind v4 mapping for Bold Localism Theme
 - `/public` - Static assets
 
 ## 3. Core Tech Stack
@@ -26,7 +26,7 @@ This project is a premium Next.js conversion funnel and diagnostic quiz applicat
 - ESLint 9.x
 
 ## 4. Engineering Rules & Mandates
-- **UX Target**: Clean Light Theme (slates, indigos, glassmorphism). Minimum interactive element height of 48px, touch targets of 44x44px. Inputs min 16px to prevent iOS auto-zoom.
+- **UX Target**: Bold Localism theme (Vibrant Orange, Deep Indigo, Sunny Yellow, Paper White, Ink Black, 3px borders, 4px hard shadows). Minimum interactive element height of 48px, touch targets of 44x44px. Inputs min 16px to prevent iOS auto-zoom.
 - **Conversion UX**: Stripped navigation on landing page. Above-the-fold benefit headline (<12 words), sub-headline (<20 words), primary CTA, and proof stats row.
 - **Form & Scoring**: Single-column layouts, inline validation, qualification scoring threshold >= 70, hard disqualifiers (budget < $1k, timeline = "Exploring", commitment < 7).
 - **UTMs & Analytics**: Capture UTM parameters on landing page, store in localStorage (first-touch/last-touch methodology), forward to GHL custom fields.
