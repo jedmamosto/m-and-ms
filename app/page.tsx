@@ -1,9 +1,247 @@
 import React from "react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "M&Ms | Buy Handcrafted Treasures Direct From Filipino MSMEs",
+  description: "Shop authentic native delicacies, artisan crafts, and handwoven apparel directly supporting local MSMEs. Direct-to-artisan fair trade across the Philippines.",
+  openGraph: {
+    title: "M&Ms | Buy Handcrafted Treasures Direct From Filipino MSMEs",
+    description: "Shop authentic native delicacies, artisan crafts, and handwoven apparel directly from regional cooperatives.",
+    url: "https://m-and-ms.ph",
+    type: "website",
+  },
+};
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://m-and-ms.ph/#organization",
+        "name": "M&Ms MSME Marketplace",
+        "url": "https://m-and-ms.ph",
+        "description": "Authentic Filipino MSME delicacies, artisan crafts, and handwoven apparel supporting local communities."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://m-and-ms.ph/#website",
+        "url": "https://m-and-ms.ph",
+        "name": "M&Ms MSME Marketplace",
+        "publisher": {
+          "@id": "https://m-and-ms.ph/#organization"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://m-and-ms.ph/#itemlist",
+        "name": "Curated Filipino MSME Delicacies & Artisan Crafts",
+        "numberOfItems": 8,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Product",
+              "name": "Inabel Handwoven Table Runner",
+              "description": "Threads of thick hand-spun local cotton woven together on century-old wooden looms featuring the geometric binakol pattern.",
+              "offers": {
+                "@type": "Offer",
+                "price": 850,
+                "priceCurrency": "PHP",
+                "availability": "https://schema.org/InStock"
+              },
+              "brand": {
+                "@type": "Brand",
+                "name": "Abel Weavers of Vigan"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4.9,
+                "reviewCount": 38
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Product",
+              "name": "Single-Origin Davao Dark Chocolate (70%)",
+              "description": "Deep, earthy cocoa aroma conched in small batches, displaying cherries and toasted walnut notes from the foothills of Mt. Talomo.",
+              "offers": {
+                "@type": "Offer",
+                "price": 350,
+                "priceCurrency": "PHP",
+                "availability": "https://schema.org/InStock"
+              },
+              "brand": {
+                "@type": "Brand",
+                "name": "Malagos Cacao Farmers"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4.8,
+                "reviewCount": 64
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Product",
+              "name": "Batangas Ground Kapeng Barako",
+              "description": "Pure Liberica beans offering a dark-roasted, woody grind with a strong, smoky aroma and sweet anise-like undertones.",
+              "offers": {
+                "@type": "Offer",
+                "price": 280,
+                "priceCurrency": "PHP",
+                "availability": "https://schema.org/InStock"
+              },
+              "brand": {
+                "@type": "Brand",
+                "name": "Lipa Coffee Growers Coop"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4.7,
+                "reviewCount": 112
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Product",
+              "name": "Yakan Handwoven Sling Bag",
+              "description": "Vibrant handloomed geometric pattern sling bag capturing Basilan's visual culture in a bag that takes three days to weave.",
+              "offers": {
+                "@type": "Offer",
+                "price": 1850,
+                "priceCurrency": "PHP",
+                "availability": "https://schema.org/InStock"
+              },
+              "brand": {
+                "@type": "Brand",
+                "name": "Yakan Weavers of Basilan"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 5.0,
+                "reviewCount": 22
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "Product",
+              "name": "Paete Acacia Salad Bowl",
+              "description": "Smooth, heavy acacia wood hand-carved from a single timber block finished in food-safe local beeswax.",
+              "offers": {
+                "@type": "Offer",
+                "price": 1200,
+                "priceCurrency": "PHP",
+                "availability": "https://schema.org/InStock"
+              },
+              "brand": {
+                "@type": "Brand",
+                "name": "Woodcarvers of Paete"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4.9,
+                "reviewCount": 45
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "Product",
+              "name": "Benguet Wildflower Honey",
+              "description": "Raw, unfiltered Cordillera wildflower honey carrying golden-amber mountain pine forest floral notes.",
+              "offers": {
+                "@type": "Offer",
+                "price": 480,
+                "priceCurrency": "PHP",
+                "availability": "https://schema.org/InStock"
+              },
+              "brand": {
+                "@type": "Brand",
+                "name": "Benguet Apiculture Coop"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4.8,
+                "reviewCount": 57
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@type": "Product",
+              "name": "VCO Handcrafted Soap Set",
+              "description": "Three organic coconut oil soap bars cold-processed and infused with farm-pressed calamansi, lemongrass, and moringa.",
+              "offers": {
+                "@type": "Offer",
+                "price": 390,
+                "priceCurrency": "PHP",
+                "availability": "https://schema.org/InStock"
+              },
+              "brand": {
+                "@type": "Brand",
+                "name": "Leyte Coco-Growers Assoc"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4.9,
+                "reviewCount": 73
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@type": "Product",
+              "name": "Romblon Abaca Sun Hat",
+              "description": "A wide-brimmed tropical abaca palm hat woven in Mimaropa using sustainable natural buri leaves.",
+              "offers": {
+                "@type": "Offer",
+                "price": 950,
+                "priceCurrency": "PHP",
+                "availability": "https://schema.org/InStock"
+              },
+              "brand": {
+                "@type": "Brand",
+                "name": "Romblon Weavers Guild"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4.6,
+                "reviewCount": 29
+              }
+            }
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-surface text-on-surface overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       
       {/* 1. ABOVE-THE-FOLD / HERO SECTION (conversion-ux & mobile-responsive) */}
       <section className="relative px-6 pt-20 pb-16 md:pt-28 md:pb-24 flex flex-col items-center text-center bg-radial from-primary/5 via-transparent to-transparent">

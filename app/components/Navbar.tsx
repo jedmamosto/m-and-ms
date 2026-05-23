@@ -69,7 +69,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/demo"
-              className="md:hidden inline-flex items-center justify-center p-2 border-2 border-on-surface rounded bg-surface-container font-label-bold text-xs uppercase hover:bg-surface-container-high"
+              className="md:hidden inline-flex items-center justify-center min-h-[44px] min-w-[44px] p-2 border-2 border-on-surface rounded bg-surface-container font-label-bold text-xs uppercase hover:bg-surface-container-high"
             >
               Demo
             </Link>
@@ -123,7 +123,7 @@ export default function Navbar() {
           </div>
           <button
             onClick={() => setIsCartOpen(false)}
-            className="w-10 h-10 border-3 border-on-surface bg-surface hover:bg-surface-container-high rounded flex items-center justify-center font-black text-sm cursor-pointer"
+            className="w-12 h-12 border-3 border-on-surface bg-surface hover:bg-surface-container-high rounded flex items-center justify-center font-black text-sm cursor-pointer"
           >
             ✕
           </button>
@@ -176,14 +176,14 @@ export default function Navbar() {
                     <div className="flex items-center border-2 border-on-surface rounded bg-surface">
                       <button
                         onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                        className="px-2 py-0.5 font-bold hover:bg-surface-container-high border-r-2 border-on-surface text-xs"
+                        className="w-11 h-11 flex items-center justify-center font-bold hover:bg-surface-container-high border-r-2 border-on-surface text-xs cursor-pointer"
                       >
                         -
                       </button>
-                      <span className="px-2.5 font-label-bold text-xs">{item.quantity}</span>
+                      <span className="px-3.5 font-label-bold text-xs">{item.quantity}</span>
                       <button
                         onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                        className="px-2 py-0.5 font-bold hover:bg-surface-container-high border-l-2 border-on-surface text-xs"
+                        className="w-11 h-11 flex items-center justify-center font-bold hover:bg-surface-container-high border-l-2 border-on-surface text-xs cursor-pointer"
                       >
                         +
                       </button>
@@ -195,7 +195,7 @@ export default function Navbar() {
                       </span>
                       <button
                         onClick={() => removeFromCart(item.product.id)}
-                        className="text-error hover:text-red-700 text-xs font-bold pl-1 border-l border-surface-container-highest"
+                        className="text-error hover:text-red-700 text-xs font-bold px-3 py-2 min-h-[44px] min-w-[44px] flex items-center justify-center border-l border-surface-container-highest cursor-pointer"
                       >
                         Delete
                       </button>

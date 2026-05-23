@@ -11,11 +11,16 @@ This project is a premium Filipino MSME product marketplace showcasing local del
 
 ## 2. Directory Structure & Guide
 - `/app` - Next.js App Router root directory
-  - `/app/demo/page.tsx` - Route `/demo` displaying the marketplace components showcase
+  - `/app/demo/page.tsx` - Server-side entry routing for `/demo`
+  - `/app/demo/DemoClient.tsx` - Sandbox Client Component with mobile responsive tabs and audited touch targets
+  - `/app/book/page.tsx` - Server-side entry routing for `/book`
+  - `/app/book/BookClient.tsx` - Onboarding booking Client Component with pre-filled GHL frame
   - `/app/products/data.ts` - Local static database of 8 curated Filipino MSME products
   - `/app/context/CartContext.tsx` - Global React shopping cart state provider
-  - `/app/components/Navbar.tsx` - Navigation header with animated sliding cart drawer
-  - `/app/api/submit-lead/route.ts` - Lead/order collector endpoint sending buyer checkout and seller application parameters to GoHighLevel
+  - `/app/components/Navbar.tsx` - Navigation header with animated sliding cart drawer and optimized touch boundaries
+  - `/app/api/submit-lead/route.ts` - Lead/order collector endpoint sending parameters to GoHighLevel
+  - `/app/sitemap.ts` - Dynamic search engine sitemap compiled route
+  - `/app/robots.ts` - Search engine crawler indexing instruction rules
   - `/app/globals.css` - Custom CSS classes, styles, and Tailwind v4 mapping
 - `/public` - Static assets
 
