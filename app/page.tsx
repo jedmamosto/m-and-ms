@@ -264,7 +264,7 @@ export default function Home() {
 
           {/* Sub-headline - Names mechanism, under 20 words (show-not-tell) */}
           <p className="font-body-lg text-base md:text-xl text-on-surface-variant max-w-2xl mb-10 leading-relaxed bg-surface/95 p-4 rounded-lg border-3 border-on-surface shadow-[4px_4px_0px_0px_var(--color-secondary)]">
-            Help protect ancestral weaving traditions, local coffee farms, and family cocoa crops with fair-trade shipping.
+            Discover handcrafted treasures direct from Filipino MSMEs. Help protect ancestral weaving traditions, local coffee farms, and family cocoa crops with fair-trade shipping.
           </p>
 
           {/* Primary CTA (conversion-ux rules: Action + Benefit + First-Person) */}
