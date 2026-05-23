@@ -10,13 +10,19 @@ function DemoContent() {
   const router = useRouter();
   const { cart, cartTotal, addToCart, clearCart } = useCart();
 
-  // Compute activeTab from searchParams dynamically to avoid synchronizing state in effects
+  // Manage activeTab using local state synced with URL parameters to prevent router updates from lagging
   const tabParam = searchParams.get("tab");
-  const activeTab = tabParam && ["shop", "quiz", "checkout", "apply"].includes(tabParam)
-    ? tabParam
-    : "shop";
+  const urlTab = tabParam && ["shop", "quiz", "checkout", "apply"].includes(tabParam) ? tabParam : "shop";
+  const [prevUrlTab, setPrevUrlTab] = useState(urlTab);
+  const [activeTab, setActiveTab] = useState(urlTab);
+
+  if (urlTab !== prevUrlTab) {
+    setPrevUrlTab(urlTab);
+    setActiveTab(urlTab);
+  }
 
   const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
     router.push(`/demo?tab=${tab}`);
   };
 
@@ -251,7 +257,7 @@ function DemoContent() {
       {activeTab === "shop" && (
         <div className="fade-in space-y-12">
           {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {PRODUCTS.map((product) => {
               const view = cardToggles[product.id] || "details";
               return (
@@ -275,13 +281,15 @@ function DemoContent() {
                     </div>
 
                     {/* Meta labels */}
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="tag text-[9px] uppercase tracking-wide px-2 py-0.5 font-bold">
-                        {product.region}
-                      </span>
+                    <div className="flex flex-col gap-2 mb-2.5">
                       <span className="font-label-bold text-xs text-primary uppercase font-bold">
                         {product.category}
                       </span>
+                      <div className="flex items-center">
+                        <span className="tag !text-[10px] !px-2.5 !py-0.5 !font-bold uppercase tracking-wide">
+                          {product.region}
+                        </span>
+                      </div>
                     </div>
 
                     <h3 className="font-headline-md text-base text-on-surface leading-tight mb-1">
