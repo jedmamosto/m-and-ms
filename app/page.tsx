@@ -1,43 +1,47 @@
+import React from "react";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-surface text-on-surface overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
-      {/* ABOVE THE FOLD / HERO SECTION */}
-      <section className="relative px-6 pt-24 pb-20 md:pt-32 md:pb-28 flex flex-col items-center text-center bg-radial from-primary/5 via-transparent to-transparent">
+      
+      {/* 1. ABOVE-THE-FOLD / HERO SECTION (conversion-ux & mobile-responsive) */}
+      <section className="relative px-6 pt-20 pb-16 md:pt-28 md:pb-24 flex flex-col items-center text-center bg-radial from-primary/5 via-transparent to-transparent">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1b1c190a_1px,transparent_1px),linear-gradient(to_bottom,#1b1c190a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
         <div className="w-full max-w-4xl mx-auto flex flex-col items-center relative z-10 fade-in">
-          {/* Pre-headline tag */}
-          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border-3 border-on-surface bg-tertiary-fixed text-on-tertiary-fixed font-label-bold text-label-bold uppercase tracking-wider mb-6 rotate-[-1.5deg] shadow-[3px_3px_0px_0px_var(--color-secondary)]">
+          {/* Pre-headline tag (design-system) */}
+          <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border-3 border-on-surface bg-tertiary-fixed text-on-tertiary-fixed font-label-bold text-xs uppercase tracking-wider mb-6 rotate-[-1.5deg] shadow-[3px_3px_0px_0px_var(--color-secondary)]">
             <span className="w-2 h-2 rounded-full bg-primary animate-ping" />
-            Free System Diagnostic for MSMEs
+            Support Local, Buy Direct
           </span>
 
-          {/* Headline - Benefit-driven, names avatar, under 12 words */}
-          <h1 className="font-display-lg text-4xl md:text-6xl text-on-surface tracking-tight leading-[1.1] max-w-3xl mb-6">
-            Get a Custom CRM Funnel <br className="hidden md:inline" />
-            <span className="text-primary-container bg-on-surface px-4 py-1 rounded inline-block rotate-[1deg] shadow-[4px_4px_0px_0px_var(--color-secondary)] text-white mt-2">Built for Your Business</span>
+          {/* Headline - Benefit-driven, names avatar, under 12 words (brand-color-application Technique 2: Gradient on Heading) */}
+          <h1 className="font-display-lg text-4xl md:text-6xl tracking-tight leading-[1.1] max-w-3xl mb-6">
+            Buy Handcrafted Treasures Direct <br className="hidden md:inline" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-tertiary-container inline-block drop-shadow-[2px_2px_0px_var(--color-on-surface)] mt-2">
+              From Filipino MSMEs
+            </span>
           </h1>
 
-          {/* Sub-headline - Names mechanism, under 20 words */}
-          <p className="font-body-lg text-lg md:text-xl text-on-surface-variant max-w-2xl mb-10 leading-relaxed bg-surface/90 p-3 rounded-lg border-2 border-on-surface shadow-[4px_4px_0px_0px_var(--color-secondary)]">
-            We design high-converting landing pages and automate lead collection in under 30 days.
+          {/* Sub-headline - Names mechanism, under 20 words (show-not-tell) */}
+          <p className="font-body-lg text-base md:text-xl text-on-surface-variant max-w-2xl mb-10 leading-relaxed bg-surface/95 p-4 rounded-lg border-3 border-on-surface shadow-[4px_4px_0px_0px_var(--color-secondary)]">
+            Help protect ancestral weaving traditions, local coffee farms, and family cocoa crops with fair-trade shipping.
           </p>
 
-          {/* Primary CTA - 48px min height, active first person benefit */}
+          {/* Primary CTA (conversion-ux rules: Action + Benefit + First-Person) */}
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
             <Link
-              href="/quiz"
+              href="/demo?tab=quiz"
               className="cta-primary cta-pulse w-full sm:w-auto min-h-[48px] text-center uppercase tracking-wide"
               id="hero-cta-btn"
             >
-              Take the Free System Diagnostic
+              Find my perfect craft match
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="w-5 h-5 ml-1 transition-transform group-hover:translate-x-1"
+                className="w-5 h-5 ml-1"
               >
                 <path
                   fillRule="evenodd"
@@ -46,161 +50,275 @@ export default function Home() {
                 />
               </svg>
             </Link>
+            <Link
+              href="/demo"
+              className="w-full sm:w-auto min-h-[48px] px-6 flex items-center justify-center border-3 border-on-surface bg-surface text-on-surface hover:bg-surface-container font-button-text text-button-text uppercase tracking-wide rounded shadow-[3px_3px_0px_0px_var(--color-on-surface)] transition-all hover:translate-y-[3px] hover:translate-x-[3px] hover:shadow-none"
+            >
+              Open Sandbox Demo
+            </Link>
           </div>
 
-          {/* Proof Row - Defensible credentials */}
-          <div className="mt-12 py-5 border-y-3 border-on-surface bg-surface-container w-full max-w-3xl flex flex-wrap justify-around items-center gap-y-4 gap-x-6 text-sm text-on-surface font-label-bold text-label-bold uppercase tracking-wider rounded shadow-[4px_4px_0px_0px_var(--color-secondary)]">
+          {/* Proof Row - Defensible credentials (conversion-ux stats pattern) */}
+          <div className="mt-12 py-5 border-y-3 border-on-surface bg-surface-container w-full max-w-3xl flex flex-wrap justify-around items-center gap-y-4 gap-x-6 text-xs text-on-surface font-label-bold text-label-bold uppercase tracking-wider rounded shadow-[4px_4px_0px_0px_var(--color-secondary)]">
             <div className="flex items-center gap-2">
-              <span className="text-primary text-lg">★</span>
-              <span>$10M+ Revenue Managed</span>
+              <span className="text-primary text-base">★</span>
+              <span>100% Filipino-Owned</span>
             </div>
             <div className="h-6 w-[3px] bg-on-surface hidden sm:block" />
             <div className="flex items-center gap-2">
-              <span className="text-primary text-lg">★</span>
-              <span>1,000+ Trained</span>
+              <span className="text-primary text-base">★</span>
+              <span>Direct-to-Artisan</span>
             </div>
             <div className="h-6 w-[3px] bg-on-surface hidden sm:block" />
             <div className="flex items-center gap-2">
-              <span className="text-primary text-lg">★</span>
-              <span>30-Day Guarantee</span>
+              <span className="text-primary text-base">★</span>
+              <span>Supporting 50+ Communities</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* TRUST BAR */}
-      <section className="py-10 border-y-3 border-on-surface bg-surface-container-low relative">
+      {/* 2. TRUST BAR (conversion-ux logo pattern) */}
+      <section className="py-8 border-y-3 border-on-surface bg-surface-container-low relative">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <p className="font-label-bold text-xs uppercase tracking-wider text-on-surface-variant font-bold mb-6">
-            As featured in & trusted by local MSMEs
+          <p className="font-label-bold text-[10px] uppercase tracking-wider text-on-surface-variant font-bold mb-4">
+            Celebrating Native Heritages From Across the Islands
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-6 font-headline-md text-on-surface">
-            <span className="font-black text-lg border-3 border-on-surface px-4 py-1.5 bg-surface-container-highest rounded rotate-[-2deg] shadow-[3px_3px_0px_0px_var(--color-secondary)]">BUSINESS DAILY</span>
-            <span className="font-black text-xl border-3 border-on-surface px-4 py-1.5 bg-tertiary-fixed text-on-tertiary-fixed rounded rotate-[3deg] shadow-[3px_3px_0px_0px_var(--color-secondary)]">MSME HUB</span>
-            <span className="font-bold text-lg border-3 border-on-surface px-4 py-1.5 bg-primary-fixed text-on-primary-fixed rounded rotate-[-1deg] shadow-[3px_3px_0px_0px_var(--color-secondary)]">SYSTEMS INC</span>
-            <span className="font-extrabold text-xl border-3 border-on-surface px-4 py-1.5 bg-surface-container rounded rotate-[1.5deg] shadow-[3px_3px_0px_0px_var(--color-secondary)]">CRM INSIDER</span>
+          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-4 font-label-bold text-[11px] text-on-surface uppercase tracking-wide">
+            <span className="border-2 border-on-surface px-3 py-1 bg-surface-container-highest rounded rotate-[-1.5deg] shadow-[2px_2px_0px_0px_var(--color-secondary)]">ILOCOS COTTON WEAVERS</span>
+            <span className="border-2 border-on-surface px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded rotate-[2deg] shadow-[2px_2px_0px_0px_var(--color-secondary)]">BATANGAS LIBERICA GROWERS</span>
+            <span className="border-2 border-on-surface px-3 py-1 bg-primary-fixed text-on-primary-fixed rounded rotate-[-1deg] shadow-[2px_2px_0px_0px_var(--color-secondary)]">DAVAO CACAO FARMS</span>
+            <span className="border-2 border-on-surface px-3 py-1 bg-surface-container rounded rotate-[1deg] shadow-[2px_2px_0px_0px_var(--color-secondary)]">PAETE WOODWORKERS GUILD</span>
           </div>
         </div>
       </section>
 
-      {/* SERVICES / VALUE PROPOSITION */}
-      <section className="py-20 md:py-28 max-w-6xl mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block bg-primary-container text-on-primary-container border-3 border-on-surface px-4 py-1 rounded-full font-label-bold text-label-bold uppercase tracking-wide rotate-[-1deg] shadow-[3px_3px_0px_0px_var(--color-secondary)] mb-4">
-            Our Solutions 🚀
-          </div>
-          <h2 className="font-headline-lg text-3xl md:text-4xl text-on-surface tracking-tight mb-4">
-            Custom Funnel Solutions Built for Conversion
+      {/* 3. CATEGORY GRID (brand-color-application Technique 4: Color on Grid) */}
+      <section className="py-16 md:py-24 max-w-6xl mx-auto px-6 w-full">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="inline-block bg-primary-container text-on-primary-container border-3 border-on-surface px-4 py-1 rounded-full font-label-bold text-xs uppercase tracking-wide rotate-[-1deg] shadow-[3px_3px_0px_0px_var(--color-secondary)] mb-4">
+            Explore Categories 📦
+          </span>
+          <h2 className="font-display-lg text-3xl md:text-4xl text-on-surface tracking-tight mb-4">
+            Four Pillars of Local Craftsmanship
           </h2>
-          <p className="font-body-lg text-on-surface-variant max-w-xl mx-auto">
-            Unlike generic web builders, we build complete custom booking and acquisition pipelines integrated directly with CRM automation.
+          <p className="font-body-md text-on-surface-variant text-sm md:text-base leading-relaxed">
+            Every purchase funds multi-generational workshops, sustainable agroforestry, and direct craft-trade jobs.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="card">
-            <div className="w-12 h-12 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed border-3 border-on-surface flex items-center justify-center font-black text-xl mb-6 shadow-[3px_3px_0px_0px_var(--color-secondary)]">
-              1
+        {/* 2x2 grid representing color per grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {/* Card 1 - Yellow bg */}
+          <div className="card bg-tertiary-fixed hover:translate-y-[-4px] hover:shadow-[6px_6px_0px_0px_var(--color-secondary)] transition-all">
+            <div className="w-10 h-10 rounded border-2 border-on-surface bg-surface flex items-center justify-center font-bold text-lg mb-6 shadow-[2px_2px_0px_0px_var(--color-on-surface)]">
+              🍯
             </div>
-            <h3 className="font-headline-md text-xl text-on-surface mb-3">High-Converting Landing Pages</h3>
-            <p className="font-body-md text-on-surface-variant text-sm leading-relaxed">
-              Fast, custom-coded landing pages designed visually and textually to drive visitors to a single clear conversion objective.
+            <h3 className="font-headline-md text-lg text-on-surface mb-2">Food Products</h3>
+            <p className="font-body-md text-on-surface-variant text-xs leading-relaxed">
+              Mt. Talomo single-origin chocolates, highland wildflower forest honey, and dark ground Barako coffee beans.
             </p>
           </div>
 
-          <div className="card">
-            <div className="w-12 h-12 rounded-lg bg-primary-fixed text-on-primary-fixed border-3 border-on-surface flex items-center justify-center font-black text-xl mb-6 shadow-[3px_3px_0px_0px_var(--color-secondary)]">
-              2
+          {/* Card 2 - Blue/Indigo bg */}
+          <div className="card bg-secondary-fixed text-on-secondary-fixed hover:translate-y-[-4px] hover:shadow-[6px_6px_0px_0px_var(--color-primary)] transition-all">
+            <div className="w-10 h-10 rounded border-2 border-on-surface bg-surface flex items-center justify-center font-bold text-lg mb-6 shadow-[2px_2px_0px_0px_var(--color-on-surface)]">
+              🏺
             </div>
-            <h3 className="font-headline-md text-xl text-on-surface mb-3">Interactive Lead Filters</h3>
-            <p className="font-body-md text-on-surface-variant text-sm leading-relaxed">
-              Step-by-step diagnostic forms that capture user intent, score suitability, and filter low-value inquiries automatically.
+            <h3 className="font-headline-md text-lg text-on-secondary-fixed mb-2">Artisan Crafts</h3>
+            <p className="font-body-md text-on-secondary-fixed-variant text-xs leading-relaxed">
+              Geometric hand-loomed table textiles from Vigan and sustainable acacia wood tableware turned by hand in Paete.
             </p>
           </div>
 
-          <div className="card">
-            <div className="w-12 h-12 rounded-lg bg-secondary-fixed text-on-secondary-fixed border-3 border-on-surface flex items-center justify-center font-black text-xl mb-6 shadow-[3px_3px_0px_0px_var(--color-secondary)]">
-              3
+          {/* Card 3 - Orange bg */}
+          <div className="card bg-primary-fixed text-on-primary-fixed hover:translate-y-[-4px] hover:shadow-[6px_6px_0px_0px_var(--color-secondary)] transition-all">
+            <div className="w-10 h-10 rounded border-2 border-on-surface bg-surface flex items-center justify-center font-bold text-lg mb-6 shadow-[2px_2px_0px_0px_var(--color-on-surface)]">
+              👜
             </div>
-            <h3 className="font-headline-md text-xl text-on-surface mb-3">CRM & GoHighLevel Pipelines</h3>
-            <p className="font-body-md text-on-surface-variant text-sm leading-relaxed">
-              Full sync with CRM fields, automated text/email follow-up reminders, and self-serve calendar booking logic.
+            <h3 className="font-headline-md text-lg text-on-primary-fixed mb-2">Apparel & Bags</h3>
+            <p className="font-body-md text-on-primary-fixed-variant text-xs leading-relaxed">
+              Adjustable tribal pattern crossbody sling bags and light abaca palm braided hats woven in Romblon.
+            </p>
+          </div>
+
+          {/* Card 4 - White/Surface bg */}
+          <div className="card bg-surface-container hover:translate-y-[-4px] hover:shadow-[6px_6px_0px_0px_var(--color-secondary)] transition-all">
+            <div className="w-10 h-10 rounded border-2 border-on-surface bg-surface flex items-center justify-center font-bold text-lg mb-6 shadow-[2px_2px_0px_0px_var(--color-on-surface)]">
+              🧼
+            </div>
+            <h3 className="font-headline-md text-lg text-on-surface mb-2">Organic Wellness</h3>
+            <p className="font-body-md text-on-surface-variant text-xs leading-relaxed">
+              Cold-processed soap bars infused with farm-pressed virgin coconut oil, lemongrass, and citrusy calamansi extract.
             </p>
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIAL SECTION */}
-      <section className="py-20 md:py-28 bg-surface-container-low border-y-3 border-on-surface">
+      {/* 4. MERCHANT SPOTLIGHT (brand-color-application Technique 5: One Tint Layout & show-not-tell copy) */}
+      <section className="py-16 md:py-24 border-y-3 border-on-surface bg-secondary-container/10">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-headline-lg text-3xl text-on-surface tracking-tight text-center mb-16">
-            Client Success
+          <h2 className="font-headline-lg text-2xl md:text-3xl text-on-surface text-center mb-12 uppercase tracking-tight">
+            Merchant Spotlight
           </h2>
 
-          {/* Testimonial Card */}
-          <div className="glass-card flex flex-col md:flex-row items-center md:items-start gap-8">
-            <div className="w-20 h-20 rounded-full bg-primary text-on-primary border-3 border-on-surface flex items-center justify-center font-black text-2xl shrink-0 shadow-[4px_4px_0px_0px_var(--color-secondary)]">
-              SJ
+          {/* Indigo tinted block */}
+          <div className="glass-card flex flex-col md:flex-row items-center gap-8 border-3 border-on-surface bg-secondary-fixed/30 shadow-[6px_6px_0px_0px_var(--color-secondary)]">
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded border-3 border-on-surface bg-gradient-to-tr from-indigo-700 to-violet-800 text-white flex items-center justify-center font-black text-3xl shrink-0 shadow-[4px_4px_0px_0px_var(--color-on-surface)]">
+              NR
             </div>
             <div>
-              <p className="font-body-lg text-lg md:text-xl font-medium text-on-surface italic mb-6 leading-relaxed">
-                &ldquo;They built our funnel and automated our booking workflow. We went from chasing leads manually to waking up with 15+ qualified appointments every single week.&rdquo;
+              <span className="inline-block bg-tertiary-fixed text-on-tertiary-fixed border-2 border-on-surface px-2.5 py-0.5 rounded font-label-bold text-[10px] uppercase mb-3">
+                Master Weaver • Vigan, Ilocos
+              </span>
+              <h3 className="font-headline-md text-xl text-on-surface mb-4">Nanay Rosa&apos;s Clacking Wooden Loom</h3>
+              
+              {/* Show-not-tell descriptive copy */}
+              <p className="font-body-md text-sm md:text-base text-on-surface-variant leading-relaxed italic mb-6">
+                &ldquo;In the dry season heat, the air inside our Vigan workshop smells of raw, unspun cotton. From 6:00 AM, the room fills with the steady, rhythmic clacking of wooden foot-pedals. My calloused hands guide the flying wooden shuttle across the loom, sliding thick colored threads into geometric diamond patterns that protect dining tables for generations.&rdquo;
               </p>
+              
               <div>
-                <h4 className="font-headline-md text-on-surface text-base">Sarah Jenkins</h4>
-                <p className="font-body-md text-on-surface-variant text-sm font-semibold">Founder, Zenith Consulting</p>
+                <h4 className="font-headline-md text-on-surface text-sm uppercase">Rosa Abel cooperative</h4>
+                <p className="font-body-md text-on-surface-variant text-xs">Supplying traditional handwoven table runners since 1984</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ BLOCK */}
-      <section className="py-20 md:py-28 max-w-4xl mx-auto px-6">
-        <h2 className="font-headline-lg text-3xl text-on-surface tracking-tight text-center mb-16">
-          Frequently Asked Questions
-        </h2>
+      {/* 5. PRODUCT PREVIEW SECTION (brand-color-application Technique 1: Color as Product Background) */}
+      <section className="py-16 md:py-24 max-w-6xl mx-auto px-6 w-full">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="inline-block bg-tertiary-container text-on-tertiary-container border-2 border-on-surface px-3 py-1 rounded font-label-bold text-xs uppercase tracking-wide rotate-[1.5deg] shadow-[2.5px_2.5px_0px_0px_var(--color-on-surface)] mb-4">
+            Curated Favorites
+          </span>
+          <h2 className="font-display-lg text-3xl md:text-4xl text-on-surface tracking-tight mb-4">
+            Locally Grown, Hand-Turned, and Loomed
+          </h2>
+          <p className="font-body-md text-on-surface-variant text-sm">
+            Crafted in small family batches, representing the soil and traditions of our regional makers.
+          </p>
+        </div>
 
-        <div className="space-y-6">
-          <div className="p-6 bg-surface-container rounded-lg border-3 border-on-surface shadow-[4px_4px_0px_0px_var(--color-secondary)]">
-            <h4 className="font-headline-md text-lg text-on-surface mb-2">How long does a custom build take?</h4>
-            <p className="font-body-md text-on-surface-variant text-sm">
-              Our standard lead generation funnel and GoHighLevel calendar/CRM integration is fully designed, built, and launched in under 30 days.
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          {/* Card 1 */}
+          <div className="card hover:translate-y-[-4px] hover:shadow-[6px_6px_0px_0px_var(--color-secondary)] transition-all">
+            {/* Technique 1: Color as Product Background frame */}
+            <div className="w-full aspect-square rounded border-3 border-on-surface bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-white font-black text-3xl shadow-[3px_3px_0px_0px_var(--color-on-surface)] mb-6">
+              🌾
+            </div>
+            <div className="flex justify-between items-start mb-2">
+              <span className="tag text-[10px] uppercase">Ilocos Region</span>
+              <span className="font-headline-md text-base text-primary">₱850</span>
+            </div>
+            <h4 className="font-headline-md text-base text-on-surface mb-2">Inabel Table Runner</h4>
+            <p className="font-body-md text-on-surface-variant text-xs leading-relaxed mb-4">
+              Threads of thick hand-spun local cotton woven into the geometric &ldquo;binakol&rdquo; patterns.
             </p>
+            <Link
+              href="/demo"
+              className="w-full text-center px-4 py-2 bg-surface hover:bg-surface-container border-3 border-on-surface rounded font-button-text text-xs uppercase shadow-[3px_3px_0px_0px_var(--color-secondary)] inline-block transition-all hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none"
+            >
+              Configure in Sandbox
+            </Link>
           </div>
 
-          <div className="p-6 bg-surface-container rounded-lg border-3 border-on-surface shadow-[4px_4px_0px_0px_var(--color-secondary)]">
-            <h4 className="font-headline-md text-lg text-on-surface mb-2">Do I need to manage the CRM integrations myself?</h4>
-            <p className="font-body-md text-on-surface-variant text-sm">
-              No. We handle the complete technical integration, including field mapping, email triggers, calendar rules, and webhook setup.
+          {/* Card 2 */}
+          <div className="card hover:translate-y-[-4px] hover:shadow-[6px_6px_0px_0px_var(--color-primary)] transition-all">
+            {/* Technique 1: Color as Product Background frame */}
+            <div className="w-full aspect-square rounded border-3 border-on-surface bg-gradient-to-br from-rose-700 to-rose-900 flex items-center justify-center text-white font-black text-3xl shadow-[3px_3px_0px_0px_var(--color-on-surface)] mb-6">
+              🍫
+            </div>
+            <div className="flex justify-between items-start mb-2">
+              <span className="tag text-[10px] uppercase">Davao Region</span>
+              <span className="font-headline-md text-base text-primary">₱350</span>
+            </div>
+            <h4 className="font-headline-md text-base text-on-surface mb-2">Single-Origin Davao Dark Chocolate</h4>
+            <p className="font-body-md text-on-surface-variant text-xs leading-relaxed mb-4">
+              Velvety dark chocolate bar conched in small batches, displaying cherries and toasted walnut notes.
             </p>
+            <Link
+              href="/demo"
+              className="w-full text-center px-4 py-2 bg-surface hover:bg-surface-container border-3 border-on-surface rounded font-button-text text-xs uppercase shadow-[3px_3px_0px_0px_var(--color-secondary)] inline-block transition-all hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none"
+            >
+              Configure in Sandbox
+            </Link>
           </div>
 
-          <div className="p-6 bg-surface-container rounded-lg border-3 border-on-surface shadow-[4px_4px_0px_0px_var(--color-secondary)]">
-            <h4 className="font-headline-md text-lg text-on-surface mb-2">How does the diagnostic quiz help my business?</h4>
-            <p className="font-body-md text-on-surface-variant text-sm">
-              It filters out unqualified leads before they can book on your calendar, ensuring your sales team only spends time talking to warm, prepared, high-intent prospects.
+          {/* Card 3 */}
+          <div className="card hover:translate-y-[-4px] hover:shadow-[6px_6px_0px_0px_var(--color-secondary)] transition-all">
+            {/* Technique 1: Color as Product Background frame */}
+            <div className="w-full aspect-square rounded border-3 border-on-surface bg-gradient-to-br from-amber-800 to-yellow-900 flex items-center justify-center text-white font-black text-3xl shadow-[3px_3px_0px_0px_var(--color-on-surface)] mb-6">
+              🪵
+            </div>
+            <div className="flex justify-between items-start mb-2">
+              <span className="tag text-[10px] uppercase">Calabarzon</span>
+              <span className="font-headline-md text-base text-primary">₱1,200</span>
+            </div>
+            <h4 className="font-headline-md text-base text-on-surface mb-2">Paete Acacia Salad Bowl</h4>
+            <p className="font-body-md text-on-surface-variant text-xs leading-relaxed mb-4">
+              Heavy acacia wood turned on a lathe and finished in food-safe local beeswax.
             </p>
+            <Link
+              href="/demo"
+              className="w-full text-center px-4 py-2 bg-surface hover:bg-surface-container border-3 border-on-surface rounded font-button-text text-xs uppercase shadow-[3px_3px_0px_0px_var(--color-secondary)] inline-block transition-all hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none"
+            >
+              Configure in Sandbox
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA STACK */}
-      <section className="py-24 bg-surface-container-low border-t-3 border-on-surface text-center relative overflow-hidden">
+      {/* 6. FAQ BLOCK (conversion-ux FAQ pattern) */}
+      <section className="py-16 md:py-24 bg-surface-container-low border-t-3 border-on-surface">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="font-headline-lg text-3xl text-on-surface tracking-tight text-center mb-16 uppercase">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-6">
+            <div className="p-6 bg-surface-container-lowest rounded-lg border-3 border-on-surface shadow-[4px_4px_0px_0px_var(--color-secondary)]">
+              <h4 className="font-headline-md text-lg text-on-surface mb-2">How are products shipped to buyers?</h4>
+              <p className="font-body-md text-on-surface-variant text-sm">
+                We work directly with regional cooperatives and local postal services. Once an order is processed, the items are packaged at the maker&apos;s workshop and shipped straight to your doorstep.
+              </p>
+            </div>
+
+            <div className="p-6 bg-surface-container-lowest rounded-lg border-3 border-on-surface shadow-[4px_4px_0px_0px_var(--color-secondary)]">
+              <h4 className="font-headline-md text-lg text-on-surface mb-2">How much of my payment goes to the creators?</h4>
+              <p className="font-body-md text-on-surface-variant text-sm">
+                We operate on a fair-trade, direct-to-artisan model. Over 85% of checkout revenues go directly to the MSME sellers, keeping multi-generational workshops thriving.
+              </p>
+            </div>
+
+            <div className="p-6 bg-surface-container-lowest rounded-lg border-3 border-on-surface shadow-[4px_4px_0px_0px_var(--color-secondary)]">
+              <h4 className="font-headline-md text-lg text-on-surface mb-2">Can MSMEs apply to join the marketplace?</h4>
+              <p className="font-body-md text-on-surface-variant text-sm">
+                Yes! Under the seller portal in the demo page, MSMEs can submit their brand details and schedule a video verification call to list products.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FINAL CTA STACK (conversion-ux final summary & sticky mobile helper) */}
+      <section className="py-20 bg-surface-container text-center border-t-3 border-on-surface relative overflow-hidden">
         <div className="absolute inset-0 bg-radial from-primary/5 via-transparent to-transparent pointer-events-none" />
         <div className="max-w-3xl mx-auto px-6 relative z-10">
-          <h2 className="font-headline-lg text-3xl md:text-5xl text-on-surface tracking-tight mb-4">
-            Ready to Automate Your Booking Pipeline?
+          <h2 className="font-headline-lg text-3xl md:text-5xl text-on-surface tracking-tight mb-4 uppercase">
+            Support Pinoy Artisans Today
           </h2>
           <p className="font-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">
-            Take our free 3-minute diagnostic quiz to identify automation gaps and view our system roadmap recommendations.
+            Take our 2-minute Matchmaker Quiz to discover unique coffee, textiles, and woodcrafts suited for your home.
           </p>
           <Link
-            href="/quiz"
+            href="/demo?tab=quiz"
             className="cta-primary min-h-[48px] w-full sm:w-auto px-10 text-center uppercase tracking-wide"
             id="final-cta-btn"
           >
-            Take the Free System Diagnostic
+            Find my craft match
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -220,11 +338,11 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="py-12 border-t-3 border-on-surface bg-surface text-center text-xs text-on-surface-variant font-label-bold text-label-bold uppercase">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p>&copy; {new Date().getFullYear()} ScaleSystems. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} M&Ms Marketplace. Direct-to-Artisan Fair Trade.</p>
           <div className="flex gap-6">
+            <Link href="/demo?tab=apply" className="hover:text-primary hover:underline">Apply as Merchant</Link>
             <a href="#" className="hover:text-primary hover:underline">Privacy Policy</a>
             <a href="#" className="hover:text-primary hover:underline">Terms of Service</a>
-            <a href="#" className="hover:text-primary hover:underline">Contact Support</a>
           </div>
         </div>
       </footer>

@@ -54,8 +54,12 @@ export async function POST(request: Request) {
           computed_score: payload.score,
           pain_points: Array.isArray(payload.painPoints) ? payload.painPoints.join(", ") : payload.painPoints,
           commitment_level: payload.commitment,
-          budget_range: payload.budget === "under_1k" ? "Under $1k" : payload.budget === "1k_3k" ? "$1k - $3k" : "$3k+",
-          kickoff_timeline: payload.timeline === "exploring" ? "Exploring" : payload.timeline === "1_month" ? "1 month" : "Immediately",
+          budget_range: ["under_1k", "1k_3k", "gt_3k"].includes(payload.budget)
+            ? (payload.budget === "under_1k" ? "Under $1k" : payload.budget === "1k_3k" ? "$1k - $3k" : "$3k+")
+            : payload.budget,
+          kickoff_timeline: ["exploring", "1_month", "immediately"].includes(payload.timeline)
+            ? (payload.timeline === "exploring" ? "Exploring" : payload.timeline === "1_month" ? "1 month" : "Immediately")
+            : payload.timeline,
           utm_source: payload.utms?.lastTouch?.utm_source,
           utm_medium: payload.utms?.lastTouch?.utm_medium,
           utm_campaign: payload.utms?.lastTouch?.utm_campaign,
@@ -95,6 +99,12 @@ export async function POST(request: Request) {
 
         // Standard free automation triggers inside GHL: Tag contact
         const tags = ["system-quiz-submitted"];
+        const primaryPainPoint = payload.painPoints?.[0] || "";
+        if (primaryPainPoint.startsWith("Seller")) {
+          tags.push("seller-application-submitted");
+        } else if (primaryPainPoint.startsWith("Order")) {
+          tags.push("buyer-order-submitted");
+        }
         if (payload.isQualified) {
           tags.push("qualified-lead");
         } else {

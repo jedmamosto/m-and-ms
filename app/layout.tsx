@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Work_Sans } from "next/font/google";
 import UtmTracker from "./utm-tracker";
+import { CartProvider } from "./context/CartContext";
+import Navbar from "./components/Navbar";
 import "./globals.css";
 
 const bricolageGrotesque = Bricolage_Grotesque({
@@ -16,8 +18,8 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "ScaleSystems | Custom Landing Pages & CRM Funnels for MSMEs",
-  description: "Stop wasting time on manual follow-ups. We build custom high-converting landing pages and automated booking funnels designed for MSME growth.",
+  title: "M&Ms | Filipino MSME Product Marketplace",
+  description: "Shop authentic handcrafted artisan crafts, local delicacies, and handwoven apparel directly supporting local MSMEs across the Philippines.",
 };
 
 export default function RootLayout({
@@ -31,8 +33,11 @@ export default function RootLayout({
       className={`${bricolageGrotesque.variable} ${workSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-surface text-on-surface noise-bg font-body-md">
-        <UtmTracker />
-        {children}
+        <CartProvider>
+          <UtmTracker />
+          <Navbar />
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

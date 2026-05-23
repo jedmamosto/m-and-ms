@@ -39,11 +39,11 @@ function BookContent() {
             </svg>
             Back to Home
           </Link>
-          <h1 className="font-display-lg text-3xl md:text-4xl tracking-tight mb-3 text-on-surface">
-            Book Your System Integration Call
+          <h1 className="font-display-lg text-3xl md:text-4xl tracking-tight mb-3 text-on-surface uppercase">
+            Schedule Your Seller Verification Call
           </h1>
           <p className="font-body-md text-on-surface-variant text-sm md:text-base leading-relaxed">
-            Please choose a time that works best. We have pre-filled the booking form with your contact info to secure your spot.
+            Please choose a convenient time for your onboarding call. We have pre-filled the registration form with your contact details to secure your slot.
           </p>
         </div>
 

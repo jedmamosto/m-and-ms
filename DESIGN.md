@@ -149,17 +149,10 @@ Depth is created through **Bold Borders** and **Offset Shadows** rather than rea
 - **Tonal Layers:** Use color-blocking to define hierarchy. A Yellow card on an Indigo background creates immediate depth without needing shadows.
 - **Stroke-based Hierarchy:** Every interactive element must have a 3px border in Ink Black or Deep Indigo to define its boundary.
 
-## Shapes
-The shape language is "Chunky and Friendly."
-
-- **Base Radius:** 8px for smaller components (chips, inputs).
-- **Large Radius:** 16px to 24px for cards and containers.
-- **The "Squircle" Influence:** Avoid perfect circles unless for icons; prefer heavily rounded rectangles that feel like molded clay or cut paper.
-
-## Components
-- **Buttons:** Must be 3px-bordered with a 4px hard-offset shadow. On hover, the shadow disappears and the button "sinks" (Translate Y: 4px).
-- **Cards:** Use a "Paper White" background with a 3px border. Card headers should be color-blocked in Sunny Yellow or Vibrant Orange.
+## Component Specifications for Marketplace
+- **Buttons (`.cta-primary`):** Must be 3px-bordered with a 4px hard-offset shadow. On hover, the shadow disappears and the button "sinks" (Translate Y: 4px).
+- **Product Cards:** Use a "Paper White" background with a 3px border. Card headers or product frames are color-blocked (Technique 1: solid/gradient backgrounds) and categories are clearly tagged.
 - **Chips/Tags:** Use Tertiary Yellow with 8px rounded corners and bold Bricolage labels.
-- **Input Fields:** Thick 3px borders. The focus state should change the border color to Primary Orange and increase the border width to 4px.
-- **Lists:** Items should be separated by heavy horizontal lines (2px) rather than whitespace, mimicking a ledger or community board.
-- **Stickers (Custom Component):** Circular or starburst-shaped badges used for "New" or "Sold" items, using high-contrast color combinations (Yellow on Indigo) and rotated at a 5-degree angle.
+- **Input Fields (`.form-input`):** Thick 3px borders. The focus state changes the border color to Primary Orange and increases width to 4px.
+- **Stickers (Custom Component):** Circular or starburst-shaped badges used for "Curated Match" or "Featured Artisan" labels, using high-contrast color combinations (Yellow on Indigo) and rotated at a 5-degree angle.
+- **Cart Drawer:** Interactive side-drawer with 3px border line separators and clean, bold typography.
